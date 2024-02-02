@@ -136,6 +136,15 @@ function deleteOne (a, b){
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
 */
 
+function onlyLetters (a){
+  const testo = "I have 4 cats and 2 dogs"; 
+  const justTesto = testo.replace(/[0-8]/,"");
+  const justTesto2 = justTesto.replace(/[0-20]/,"");
+  a = justTesto2
+  console.log(justTesto2); 
+    
+};
+onlyLetters()
 
 
 
@@ -143,9 +152,65 @@ function deleteOne (a, b){
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
 
-/* ESERCIZIO 7
-  Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
+function isThisAnEmail(a){
+  a = "blablabla@gmail.com";
+  const value = ".com"
+  
+  if (a.includes(value)) {
+    console.log("This is an email address");
+  }else{
+    console.log("This is not an email");
+  };
+
+};
+isThisAnEmail();
+
+/* // I discoverd that for me works when I think out of the function first.... I'm not sure if I'm building right the function, but, in the end,
+  // the resul is coming right :D
+
+  //Thought out of the function first....
+
+const emailAdress = "blablabla@gmail.com";
+const value = ".com"
+
+if (emailAdress.includes(value)) {
+  console.log("This is an email address");
+}else{
+  console.log("This is not an email");
+};
 */
+
+
+/* ESERCIZIO 7
+Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
+*/
+
+function whatDayIsIt (a) {
+  const data = new Date();
+
+  const day = String(data.getDate()); 
+  const month = String(data.getMonth()+1); 
+  const year = String(data.getFullYear());
+  
+  a = (day +"/"+ month + "/" + year);
+  console.log(a);
+
+};
+whatDayIsIt();
+
+/* // another way, without a Function
+
+const data = new Date();
+
+  const day = String(data.getDate()); 
+  const month = String(data.getMonth()+1); 
+  const year = String(data.getFullYear());
+  
+  const todayIs = (day +"/"+ month + "/" + year)
+
+console.log(todayIs);
+*/
+
 
 /* ESERCIZIO 8
   Scrivi una funzione chiamata "rollTheDices" che riceve un numero come parametro.
@@ -160,9 +225,12 @@ function deleteOne (a, b){
   }
 */
 
+
+
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 */
+
 
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
