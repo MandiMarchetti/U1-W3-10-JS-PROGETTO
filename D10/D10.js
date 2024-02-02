@@ -78,6 +78,8 @@ function dice (a,b){
 console.log(dice (1,6));
 
 
+
+
 /* ESERCIZIO 2
   Crea una funzione chiamata "whoIsBigger" che riceve due numeri come parametri e ritorna il maggiore dei due.
 */
@@ -225,12 +227,22 @@ console.log(todayIs);
   }
 */
 
+function rollTheDice (a) {
+  a = 5;
+};
+  const dice5 = (dice() + dice() + dice() + dice() + dice());
+  console.log(dice5);
 
 
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 */
+function howManyDays (a){
+  const today = new Date();
 
+
+
+};
 
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
@@ -239,6 +251,8 @@ console.log(todayIs);
 // Arrays & Oggetti
 
 // NOTA: l'array "movies" usato in alcuni esercizi è definito alla fine di questo file
+
+
 
 /* ESERCIZIO 11
   Scrivi una funzione chiamata "deleteProp" che riceve un oggetto e una stringa come parametri; deve ritornare l'oggetto fornito dopo aver eliminato
