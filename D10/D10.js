@@ -216,7 +216,8 @@ console.log(todayIs);
 
 /* ESERCIZIO 8
   Scrivi una funzione chiamata "rollTheDices" che riceve un numero come parametro.
-  Deve invocare la precedente funzione dice() il numero di volte specificato nel parametro, e deve tornare un oggetto contenente una proprietà "sum":
+  Deve invocare la precedente funzione dice() il numero di volte specificato nel parametro, e deve tornare un oggetto 
+  contenente una proprietà "sum":
   il suo valore deve rappresentare il totale di tutti i valori estratti con le invocazioni di dice().
   L'oggetto ritornato deve anche contenere una proprietà "values", contenente un array con tutti i valori estratti dalle invocazioni di dice().
 
@@ -227,11 +228,20 @@ console.log(todayIs);
   }
 */
 
-function rollTheDice (a) {
-  a = 5;
-};
-  const dice5 = (dice() + dice() + dice() + dice() + dice());
-  console.log(dice5);
+function rollTheDices(a) {
+  const sum = 0;
+  const values = [];
+  
+  for (const i = 0; i < a; i++) {
+    const result = dice();
+    sum += result;
+    values.push(result);
+  }
+  
+  return { sum, values };
+
+}
+rollTheDices(dice());
 
 
 /* ESERCIZIO 9
