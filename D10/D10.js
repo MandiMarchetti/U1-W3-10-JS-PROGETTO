@@ -48,36 +48,35 @@ console.log(cloneMe);
   Crea del codice per aggiungere programmaticamente all'oggetto precedentemente creato un array chiamato "skills", 
   contenente i linguaggi di programmazione che conosci.
 */
-me["skills"] = ["hardworking","polyglot"];
-console.log(me);
+cloneMe["skills"] = ["hardworking","polyglot"];
+console.log(cloneMe);
 
 
 /* ESERCIZIO F
   Crea un pezzo di codice per aggiungere un nuovo elemento all'array "skills" contenuto nell'oggetto "me".
 */
-me.skills.push("creative");
-console.log(me);
+cloneMe.skills.push("creative");
+console.log(cloneMe);
 
 
 /* ESERCIZIO G
   Crea un pezzo di codice per rimuovere programmaticamente l'ultimo elemento dall'array "skills" contenuto nell'oggetto "me".
 */
 
-delete me.skills;
-console.log(me);
+delete cloneMe.skills;
+console.log(cloneMe);
 
 // Funzioni
 
 /* ESERCIZIO 1
   Crea una funzione chiamata "dice": deve generare un numero casuale tra 1 e 6.
 */
-function dice (a,b){
-  return Math.floor(Math.random()*(b - a+1))+a;
+
+function dice(){
+  return Math.floor(Math.random()*6)+1;
 };
 
-console.log(dice (1,6));
-
-
+console.log(dice());
 
 
 /* ESERCIZIO 2
@@ -101,14 +100,18 @@ console.log(whoIsBigger(30,20));
   Es.: splitMe("I love coding") => ritorna ["I", "Love", "Coding"]
 */
 
-const newArray = [];
 
-const phrase = "Don't stop me know because I'm having a good time";
-const splitPhrase = phrase.split(' ');
-console.log(splitPhrase);
 
-newArray.push(splitPhrase);
-console.log(newArray);
+function splitMe (){
+  const newArray = [];
+  const phrase = "Don't stop me know because I'm having a good time";
+  const splitPhrase = phrase.split(' ');
+  newArray.push(splitPhrase);
+  
+  return newArray;
+};
+
+console.log(splitMe());
 
 
 /* ESERCIZIO 4
@@ -128,8 +131,7 @@ function deleteOne (a, b){
 
  deleteOne(2,2);
  deleteOne(4,2);
- deleteOne(5,5);
- deleteOne(6,4);
+ 
 
 
 /* ESERCIZIO 5
@@ -146,7 +148,7 @@ function onlyLetters (a){
   console.log(justTesto2); 
     
 };
-onlyLetters()
+onlyLetters();
 
 
 
@@ -219,7 +221,8 @@ console.log(todayIs);
   Deve invocare la precedente funzione dice() il numero di volte specificato nel parametro, e deve tornare un oggetto 
   contenente una proprietà "sum":
   il suo valore deve rappresentare il totale di tutti i valori estratti con le invocazioni di dice().
-  L'oggetto ritornato deve anche contenere una proprietà "values", contenente un array con tutti i valori estratti dalle invocazioni di dice().
+  L'oggetto ritornato deve anche contenere una proprietà "values", contenente un array con tutti i valori estratti dalle 
+  invocazioni di dice().
 
   Example:
   rollTheDices(3) => ritorna {
@@ -228,46 +231,96 @@ console.log(todayIs);
   }
 */
 
-function rollTheDices(a) {
-  const sum = 0;
+function rollTheDices(n) {
   const values = [];
-  
-  for (const i = 0; i < a; i++) {
-    const result = dice();
-    sum += result;
-    values.push(result);
-  }
-  
-  return { sum, values };
+  let sum = 0;
 
-}
-rollTheDices(dice());
+  for (let i = 0; i < n; i++) {
+    const value = dice();
+    sum += value;
+    values.push(value);
+  };
+  
+  return {
+    sum: sum,
+    values: values
+  };
+};
+
+const result = rollTheDices(5);
+console.log("Sum = ", result.sum);
+console.log("Values = ", result.values);
 
 
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 */
-function howManyDays (a){
-  const today = new Date();
 
+function howManyDays(date) {
+  const oggi = new Date();
+  const dateInMilliseconds = date.getTime();
+  const todayInMilliseconds = oggi.getTime();
+  const differenceInMilliseconds = todayInMilliseconds - dateInMilliseconds;
+  const differenceInDays = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24));
 
-
+  return differenceInDays;
 };
+
+const startDate = new Date('2023-01-21');
+const daysPassed = howManyDays(startDate);
+console.log("Quanti giorni fino adesso?", daysPassed);
 
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
+
+function isTodayMyBirthday(birthday) {
+  const today = new Date();
+  const todayDay = today.getDate();
+  const todayMonth = today.getMonth();
+
+  
+  const birthdayDay = birthday.getDate();
+  const birthdayMonth = birthday.getMonth();
+
+  return todayDay === birthdayDay && todayMonth === birthdayMonth;
+};
+
+const myBirthday = new Date('2024-01-29');
+console.log(result); 
+const results = isTodayMyBirthday(myBirthday); 
+//Non sono riuscita :(
 
 // Arrays & Oggetti
 
 // NOTA: l'array "movies" usato in alcuni esercizi è definito alla fine di questo file
 
 
-
 /* ESERCIZIO 11
-  Scrivi una funzione chiamata "deleteProp" che riceve un oggetto e una stringa come parametri; deve ritornare l'oggetto fornito dopo aver eliminato
+  Scrivi una funzione chiamata "deleteProp" che riceve un oggetto e una stringa come parametri; deve ritornare l'oggetto 
+  fornito dopo aver eliminato
   in esso la proprietà chiamata come la stringa passata come secondo parametro.
 */
+
+function deleteProp(obj, propName) {
+  
+  if (propName in obj) {
+    delete obj[propName];
+  }
+  
+  return obj;
+}
+
+const myObject = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+console.log("Oggetto originale:", myObject);
+const modifiedObject = deleteProp(myObject, "age");
+console.log("Oggetto dopo l'eliminazione:", modifiedObject);
+
 
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
