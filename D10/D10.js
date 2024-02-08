@@ -390,7 +390,7 @@ function stampaTesto() {
 
   tdElements.forEach(function(td) {
   console.log(td.textContent);
-  
+
   });
 };
 stampaTesto();
@@ -399,9 +399,30 @@ stampaTesto();
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
 
+function backgroundRosso() {
+  const linkElements = document.querySelectorAll("a");
+
+  linkElements.forEach(function(link) {
+    link.style.backgroundColor = "red";
+
+  });
+
+};
+backgroundRosso();
+
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
+
+function newItemList(text) {
+  const newItem = document.createElement("li");
+  newItem.textContent = text;
+
+  const list = document.getElementsByTagName("ul");
+  list.appendChild(newItem);
+};
+
+newItemList("Molho de Tomate");
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
