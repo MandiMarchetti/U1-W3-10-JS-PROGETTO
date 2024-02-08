@@ -354,19 +354,46 @@ console.log("Oggetto senza città:", modifiedObject);
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
 
+
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
 
+function selectContainer() {
+  const container = document.getElementById("container");
+  return container;
+};
+
+const container2 = selectContainer();
+console.log(container);  
+
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
 
+function selectTds() {
+  const tdElements = document.querySelectorAll("td");
+  return tdElements;
+};
+
+const tdElements = selectTds();
+console.log(tdElements);
+
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
+
+function stampaTesto() {
+  const tdElements = document.querySelectorAll("td");
+
+  tdElements.forEach(function(td) {
+  console.log(td.textContent);
+  
+  });
+};
+stampaTesto();
 
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
