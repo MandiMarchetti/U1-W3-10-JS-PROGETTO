@@ -298,8 +298,7 @@ const results = isTodayMyBirthday(myBirthday);
 
 /* ESERCIZIO 11
   Scrivi una funzione chiamata "deleteProp" che riceve un oggetto e una stringa come parametri; deve ritornare l'oggetto 
-  fornito dopo aver eliminato
-  in esso la proprietà chiamata come la stringa passata come secondo parametro.
+  fornito dopo aver eliminato in esso la proprietà chiamata come la stringa passata come secondo parametro.
 */
 
 function deleteProp(obj, propName) {
@@ -312,14 +311,14 @@ function deleteProp(obj, propName) {
 }
 
 const myObject = {
-  name: "John",
-  age: 30,
-  city: "New York"
+  nome: "Amanda",
+  anni: 34,
+  città: "Roma",
 };
 
 console.log("Oggetto originale:", myObject);
-const modifiedObject = deleteProp(myObject, "age");
-console.log("Oggetto dopo l'eliminazione:", modifiedObject);
+const modifiedObject = deleteProp(myObject, "città");
+console.log("Oggetto senza città:", modifiedObject);
 
 
 /* ESERCIZIO 12
