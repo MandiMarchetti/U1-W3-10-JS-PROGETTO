@@ -414,9 +414,9 @@ backgroundRosso();
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
 
-function newItemList(text) {
+function newItemList(item) {
   const newItem = document.createElement("li");
-  newItem.textContent = text;
+  newItem.textContent = item;
 
   const list = document.getElementsByTagName("ul");
   list.appendChild(newItem);
